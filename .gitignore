@@ -99,3 +99,16 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+.build_proto_cache/
+
+app/service/device/*_pb2.py
+app/service/device/*_pb2_grpc.py
+
+app/service/token/*_pb2.py
+app/service/token/*_pb2_grpc.py
+
+app/service/user/*_pb2.py
+app/service/user/*_pb2_grpc.py
+
+test/

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "common.proto";
+package pontus.store;
+
+service Device {
+	rpc addDevice (CreateDeviceRequest) returns (CreateDeviceResponse) {}
+	rpc deleteDevice (DeleteDeviceRequest) returns (DeleteDeviceResponse) {}
+}
+
+message CreateDeviceRequest{
+	string deviceName = 1;
+	int32 os = 2; //string in(1:andorid,2:ios,3:windows,4:osx,5:ubuntu,6:centos,7:linux,1000:other)
+	string osver = 3; //os ver
+	int32 deviceType = 4; //1:mobile; 2:pc; 3:mac;
+	int32 clientType = 5; //1:android app; 2:ios app; 3:pc; 4:mac; 5:web
+	string extra = 6; //other info, maybe is something relative to special device.json
+}
+
+message CreateDeviceResponse{
+	pontus.store.common.StatusCode status = 1;
+	string deviceId = 2;
+}
+
+message DeleteDeviceRequest{
+	string deviceId = 1;
+}
+
+message DeleteDeviceResponse{
+	pontus.store.common.StatusCode status = 1;
+}

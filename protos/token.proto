@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "common.proto";
+package pontus.store;
+
+service Token {
+	rpc createToken (CreateTokenRequest) returns (CreateTokenResponse) {}
+	rpc checkToken (CheckTokenRequest) returns (CheckTokenResponse) {}
+	rpc deleteToken (DeleteTokenRequest) returns (DeleteTokenRequest) {}
+}
+
+message CreateTokenRequest{
+	string deviceId = 1;
+	int32 userId = 2;
+}
+
+message CreateTokenResponse{
+	pontus.store.common.StatusCode status = 1;
+	string token = 2;
+}
+
+message CheckTokenRequest{
+	string deviceId = 1;
+	string token = 2;
+}
+
+message CheckTokenResponse{
+	pontus.store.common.StatusCode status = 1;
+}
+
+message DeleteTokenRequest{
+	string deviceId = 1;
+	string token = 2;
+}
+
+message DeleteTokenResponse{
+	pontus.store.common.StatusCode status = 1;
+}

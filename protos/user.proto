@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "common.proto";
+package pontus.store;
+
+service User {
+	rpc createUser (CreateUserRequest) returns (CreateUserResponse) {}
+	rpc checkUser (CheckUserRequest) returns (CheckUserResponse) {}
+	rpc deleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
+}
+
+message CreateUserRequest {
+	string name = 1;
+	string password = 2;
+	int32 nick = 3;
+	int32 gender = 4;
+}
+
+message CreateUserResponse{
+	pontus.store.common.StatusCode status = 1;
+	int32 userid = 2;
+}
+
+message CheckUserRequest {
+	string name = 1;
+	string password = 2;
+}
+
+message CheckUserResponse{
+	pontus.store.common.StatusCode status = 1;
+}
+
+message DeleteUserRequest {
+	int32 userid = 1;
+}
+
+message DeleteUserResponse{
+	pontus.store.common.StatusCode status = 1;
+}
+
