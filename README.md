@@ -1,45 +1,15 @@
 # Pontus Store 
 
-## 1. 开发环境配置
-Server提供业务服务，客户端（一般是接入服务器）通过grpc调用相关服务，开发语言为Python。
+Pontus服务端的存储层。
 
-### 安装grpcio
+## 开发环境
 
-```
-sudo python -m pip install grpcio
-```
+本工程使用`golang`进行开发，使用官方的依赖管理工具`dep`管理依赖。按以下步骤设置环境：
 
-### 安装grpcio-tools
+ - `cd src && dep init`
 
-Python的 gRPC 工具包括了Proto Buffer的编译器 `protoc` 以及通过proto文件中的定义的服务生成gRPC客户端与服务端代码的工具。
+> 执行上述开发过程时，依赖`dep`可执行文件。此文件并不是`golang`开发环境默认就有的。安装过程也很简单，使用`go get -d -u github.com/golang/dep`即可以安装。
 
-```
-python -m pip install grpcio-tools
-```
+## 依赖库
 
-## 2. 使用Proto生成grpc文件
-
-开发环境就续，获取源代码后，需要先根据proto生成相关的python类文件后，才能正常编译运行。
-
-### 2.1 根据`proto`生成对应的`python`文件
-
-只需要运行根目录下的build_proto.sh即可。
-
-```
-cd {git}
-bash build_proto.sh
-```
-
-> {git}为Pontus-Service-Biz的代码根目录。
-
-### 2.2 启动服务
-
-在调试阶段，在控制台启动grpc服务：
-```
-cd {git}
-python server.py
-```
-
-### 2.3 测试服务
-
-test目录用于测试。
+ - xorm：golang写的 `mysql orm`库，用于读写mysql数据库
