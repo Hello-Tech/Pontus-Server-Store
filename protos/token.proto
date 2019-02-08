@@ -3,7 +3,7 @@ syntax = "proto3";
 import "common.proto";
 package pontus.store;
 
-service Token {
+service TokenService {
 	rpc createToken (CreateTokenRequest) returns (CreateTokenResponse) {}
 	rpc checkToken (CheckTokenRequest) returns (CheckTokenResponse) {}
 	rpc deleteToken (DeleteTokenRequest) returns (DeleteTokenRequest) {}
@@ -15,7 +15,7 @@ message CreateTokenRequest{
 }
 
 message CreateTokenResponse{
-	pontus.store.common.StatusCode status = 1;
+	StatusCode status = 1;
 	string token = 2;
 }
 
@@ -25,7 +25,7 @@ message CheckTokenRequest{
 }
 
 message CheckTokenResponse{
-	pontus.store.common.StatusCode status = 1;
+	StatusCode status = 1;
 }
 
 message DeleteTokenRequest{
@@ -34,5 +34,5 @@ message DeleteTokenRequest{
 }
 
 message DeleteTokenResponse{
-	pontus.store.common.StatusCode status = 1;
+	StatusCode status = 1;
 }

@@ -3,7 +3,7 @@ syntax = "proto3";
 import "common.proto";
 package pontus.store;
 
-service User {
+service UserService {
 	rpc createUser (CreateUserRequest) returns (CreateUserResponse) {}
 	rpc checkUser (CheckUserRequest) returns (CheckUserResponse) {}
 	rpc deleteUser (DeleteUserRequest) returns (DeleteUserResponse) {}
@@ -17,7 +17,7 @@ message CreateUserRequest {
 }
 
 message CreateUserResponse{
-	pontus.store.common.StatusCode status = 1;
+	StatusCode status = 1;
 	int32 userid = 2;
 }
 
@@ -27,7 +27,7 @@ message CheckUserRequest {
 }
 
 message CheckUserResponse{
-	pontus.store.common.StatusCode status = 1;
+	StatusCode status = 1;
 }
 
 message DeleteUserRequest {
@@ -35,6 +35,6 @@ message DeleteUserRequest {
 }
 
 message DeleteUserResponse{
-	pontus.store.common.StatusCode status = 1;
+	StatusCode status = 1;
 }
 

@@ -3,7 +3,7 @@ syntax = "proto3";
 import "common.proto";
 package pontus.store;
 
-service Device {
+service DeviceService {
 	rpc addDevice (CreateDeviceRequest) returns (CreateDeviceResponse) {}
 	rpc deleteDevice (DeleteDeviceRequest) returns (DeleteDeviceResponse) {}
 }
@@ -18,7 +18,7 @@ message CreateDeviceRequest{
 }
 
 message CreateDeviceResponse{
-	pontus.store.common.StatusCode status = 1;
+	StatusCode status = 1;
 	string deviceId = 2;
 }
 
@@ -27,5 +27,5 @@ message DeleteDeviceRequest{
 }
 
 message DeleteDeviceResponse{
-	pontus.store.common.StatusCode status = 1;
+	StatusCode status = 1;
 }

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package pontus.store.common;
+package pontus.store;
 
 message StatusCode {
   int32 code = 1;
