@@ -1,9 +1,9 @@
 package main
 
 import (
-	"log"
+	"pstore"
 )
 
 func main() {
-	log.Println("Test")
+	pstore.InitStore("root:@/flutter")
 }
