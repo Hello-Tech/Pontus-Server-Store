@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 import "common.proto";
-package pontus.store;
+package pontus.store.pb;
 
 service DeviceService {
 	rpc addDevice (CreateDeviceRequest) returns (CreateDeviceResponse) {}
